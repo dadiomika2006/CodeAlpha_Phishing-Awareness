@@ -13,12 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const showSlide = (index) => {
+    if (index < 0 || index >= slides.length) return;
     slides.forEach((s, i) => s.classList.toggle('active', i === index));
     current = index;
     updateNavigation();
   };
 
-  updateNavigation();
+  showSlide(0);
 
   nextBtn.addEventListener('click', () => {
     if (current < slides.length - 1) showSlide(current + 1);

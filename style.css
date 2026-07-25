@@ -54,6 +54,11 @@ section h2 { margin-bottom: 1rem; color: var(--primary); }
 
 ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
 
+#slide-2 ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 figure { text-align: center; margin: 1.5rem 0; }
 .mockup { max-width: 100%; border: 2px solid var(--primary); border-radius: 8px; }
 

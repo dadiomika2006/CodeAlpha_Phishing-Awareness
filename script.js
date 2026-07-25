@@ -1,23 +1,33 @@
-// script.js – slide navigation and interactive quiz
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slide');
   let current = 0;
 
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  const updateNavigation = () => {
+    prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
+    nextBtn.style.display = current === slides.length - 1 ? 'none' : 'inline-block';
+  };
+
   const showSlide = (index) => {
     slides.forEach((s, i) => s.classList.toggle('active', i === index));
     current = index;
+    updateNavigation();
   };
 
-  document.getElementById('next').addEventListener('click', () => {
+  updateNavigation();
+
+  nextBtn.addEventListener('click', () => {
     if (current < slides.length - 1) showSlide(current + 1);
   });
 
-  document.getElementById('prev').addEventListener('click', () => {
+  prevBtn.addEventListener('click', () => {
     if (current > 0) showSlide(current - 1);
   });
 
-  // ---------- Quiz ----------
   const quizData = [
     {
       question: "Which of the following is a strong indicator of a phishing email?",
@@ -27,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "A corporate logo that looks perfect",
         "An email from a known internal address"
       ],
-      answer: 1 // zero‑based index
+      answer: 1 
     },
     {
       question: "You receive a link that claims to be from your bank but the URL is https://bank-secure-login.com. What should you do?",

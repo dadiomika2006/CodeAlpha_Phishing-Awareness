@@ -8,8 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.getElementById('next');
 
   const updateNavigation = () => {
-    prevBtn.hidden = current === 0;
-    nextBtn.hidden = current === slides.length - 1;
+    const isFirst = current === 0;
+    const isLast = current === slides.length - 1;
+    prevBtn.hidden = isFirst;
+    nextBtn.hidden = isLast;
+    prevBtn.style.display = isFirst ? 'none' : 'inline-block';
+    nextBtn.style.display = isLast ? 'none' : 'inline-block';
   };
 
   const showSlide = (index) => {

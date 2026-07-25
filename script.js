@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.getElementById('next');
 
   const updateNavigation = () => {
-    prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
-    nextBtn.style.display = current === slides.length - 1 ? 'none' : 'inline-block';
+    prevBtn.hidden = current === 0;
+    nextBtn.hidden = current === slides.length - 1;
   };
 
   const showSlide = (index) => {
